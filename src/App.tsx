@@ -5,7 +5,7 @@ import React from 'react';
 import GlobalStyle from './theme/globalStyle';
 
 // Components
-import Layout from './components/layout/layout/Layout';
+import Layout from './components/layout/Layout';
 import HomeScreen from './pages/HomeScreen';
 
 interface Props {}
