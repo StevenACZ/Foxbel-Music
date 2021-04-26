@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Container = styled.main`
+export const LayoutStyled = styled.main`
   max-width: 992px;
   padding: 30px 0;
   margin: 0 auto;
@@ -12,3 +12,5 @@ export const Container = styled.main`
   @media (max-width: 767px) {
   }
 `;
+
+export const Section = styled.section``;
