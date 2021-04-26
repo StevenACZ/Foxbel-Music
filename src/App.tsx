@@ -1,13 +1,24 @@
 // React
 import React from 'react';
 
+// Styles
+import GlobalStyle from './theme/globalStyle';
+
 // Components
+import Layout from './components/layout/layout/Layout';
 import HomeScreen from './pages/HomeScreen';
 
 interface Props {}
 
 const App: React.FC<Props> = () => {
-  return <HomeScreen />;
+  return (
+    <>
+      <GlobalStyle />
+      <Layout>
+        <HomeScreen />
+      </Layout>
+    </>
+  );
 };
 
 export default App;
