@@ -2,21 +2,22 @@
 import React from 'react';
 
 // Styles
-import { Container } from './Styles';
+import { LayoutStyled, Section } from './Styles';
 
 // Components
-// import Header from '../header/Header';
+import Header from '../layout/header/Header';
+import Aside from '../layout/aside/Aside';
 
 interface Props {}
 
 const Layout: React.FC<Props> = ({ children }) => {
   return (
-    <>
-      {/* <Header /> */}
-      {/* <Aside /> */}
-      <Container>{children}</Container>
+    <LayoutStyled>
+      <Header />
+      <Aside />
+      <Section>{children}</Section>
       {/* <MusicPlayer /> */}
-    </>
+    </LayoutStyled>
   );
 };
 
