@@ -48,7 +48,6 @@ export const Intro = styled.div`
     font-size: 22px;
     line-height: 27.5px;
     font-weight: 700;
-    margin-bottom: 3px;
   }
 
   & > div {
