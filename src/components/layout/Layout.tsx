@@ -2,7 +2,7 @@
 import React from 'react';
 
 // Styles
-import { LayoutStyled, Content } from './Styles';
+import { LayoutStyled } from './Styles';
 
 // Components
 import Header from '../layout/header/Header';
@@ -16,7 +16,7 @@ const Layout: React.FC<Props> = ({ children }) => {
     <LayoutStyled>
       <Header />
       <Aside />
-      <Content>{children}</Content>
+      <>{children}</>
       <MusicPlayer />
     </LayoutStyled>
   );
