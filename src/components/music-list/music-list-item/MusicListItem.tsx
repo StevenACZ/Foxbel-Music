@@ -12,22 +12,26 @@ import {
 
 // Images
 import iconPlay from '../../../assets/images/icon-play.png';
-import example from '../../../assets/images/adele21.png';
 import iconThreeVertical from '../../../assets/images/icon-three-vertical.png';
 
-interface Props {}
+// Interfaces
+import { ReqResSong } from '../../../interfaces/reqResSong.interfaces';
 
-const MusicListItem: React.FC<Props> = () => {
+const MusicListItem: React.FC<ReqResSong> = ({
+  title_short,
+  artist: { name },
+  album: { cover_medium },
+}) => {
   return (
     <MusicListItemStyled>
       <Image>
-        <img src={example} alt="example" />
+        <img src={cover_medium} alt={title_short} />
         <IconPlay src={iconPlay} alt="icon play" />
         <IconThreeVertical src={iconThreeVertical} alt="icon three vertical" />
       </Image>
       <Information>
-        <h3>21</h3>
-        <p>Adele</p>
+        <h3>{title_short}</h3>
+        <p>{name}</p>
       </Information>
     </MusicListItemStyled>
   );
