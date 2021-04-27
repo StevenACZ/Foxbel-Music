@@ -1,8 +1,11 @@
 import { createSlice } from '@reduxjs/toolkit';
 import type { RootState } from '../../store/store';
 
+// Interfaces
+import { ReqResSong } from '../../interfaces/reqResSong.interfaces';
+
 interface SongListState {
-  songs: null | [];
+  songs: null | ReqResSong[];
   loading: boolean;
   error: null | string;
 }
