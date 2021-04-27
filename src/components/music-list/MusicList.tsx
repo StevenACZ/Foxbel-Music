@@ -17,6 +17,8 @@ import { MusicListStyled, MusicListContent } from './Styles';
 
 // Components
 import MusicListItem from './music-list-item/MusicListItem';
+import Alert from '../alert/Alert';
+import Spin from '../spin/Spin';
 
 interface Props {}
 
@@ -39,12 +41,14 @@ const MusicList: React.FC<Props> = () => {
     <MusicListStyled>
       <h2>Resultados</h2>
 
-      <MusicListContent>
-        {songs &&
-          songs.map((song: any) => <MusicListItem key={song.id} {...song} />)}
+      <Spin spinning={loading}>
+        <MusicListContent>
+          {songs &&
+            songs.map((song: any) => <MusicListItem key={song.id} {...song} />)}
 
-        {/* {error && <Alert message={error} type="error" />} */}
-      </MusicListContent>
+          {error && <Alert message={error} type="error" />}
+        </MusicListContent>
+      </Spin>
     </MusicListStyled>
   );
 };
