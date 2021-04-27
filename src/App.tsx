@@ -6,7 +6,7 @@ import GlobalStyle from './theme/globalStyle';
 
 // Components
 import Layout from './components/layout/Layout';
-import HomeScreen from './pages/HomeScreen';
+import RecentScreen from './pages/RecentScreen';
 
 interface Props {}
 
@@ -15,7 +15,7 @@ const App: React.FC<Props> = () => {
     <>
       <GlobalStyle />
       <Layout>
-        <HomeScreen />
+        <RecentScreen />
       </Layout>
     </>
   );
