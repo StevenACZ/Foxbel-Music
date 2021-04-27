@@ -10,13 +10,13 @@ export const LayoutStyled = styled.section`
     'aside header'
     'aside main'
     'musicPlayer musicPlayer';
-  padding: 30px 0;
   margin: 0 auto;
 
+  /* 
   @media (max-width: 991px) {
     padding: 30px 20px;
   }
 
   @media (max-width: 767px) {
-  }
+  } */
 `;
