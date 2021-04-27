@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { color } from '../../theme/variables';
 
 export const MusicListStyled = styled.section`
-  margin-top: 40px;
+  margin: 40px 0 116px;
 
   & > h2 {
     font-family: 'Quicksand', sans-serif;
