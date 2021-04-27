@@ -8,7 +8,7 @@ import {
   songDetailsFail,
 } from '../../slices/song/songDetails';
 
-export const listSongDetails = (songId: string) => async (dispatch: any) => {
+export const songDetails = (songId: string) => async (dispatch: any) => {
   try {
     dispatch(songDetailsRequest());
 
