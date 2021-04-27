@@ -61,7 +61,6 @@ export const Actions = styled.div`
   }
 
   .anticon-pause-circle {
-    display: none;
     margin: 0 20px;
     cursor: pointer;
   }
