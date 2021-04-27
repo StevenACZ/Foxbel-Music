@@ -29,9 +29,6 @@ import {
   StepForwardOutlined,
 } from '@ant-design/icons';
 
-// Images
-import example from '../../assets/images/adele21.png';
-
 // Components
 import Alert from '../alert/Alert';
 import Spin from '../spin/Spin';
