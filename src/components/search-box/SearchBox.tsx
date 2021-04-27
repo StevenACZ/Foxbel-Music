@@ -1,6 +1,12 @@
 // React
 import React from 'react';
 
+// Redux
+import { useDispatch } from 'react-redux';
+
+// Redux - Actions
+import { listSongs } from '../../actions/song/songList';
+
 // Styles
 import { SearchBoxStyled } from './Styles';
 
@@ -13,6 +19,9 @@ import useForm from '../../hooks/useForm';
 interface Props {}
 
 const SearchBox: React.FC<Props> = () => {
+  // Dispatch
+  const dispatch = useDispatch();
+
   const { keyword, onChange } = useForm({
     keyword: '',
   });
@@ -21,9 +30,7 @@ const SearchBox: React.FC<Props> = () => {
     e.preventDefault();
 
     if (keyword.trim()) {
-      // history.push(`/search/${keyword}`);
-    } else {
-      // history.push('/');
+      dispatch(listSongs(keyword));
     }
   };
 
