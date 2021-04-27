@@ -2,7 +2,10 @@
 import React from 'react';
 
 // Redux
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+
+// Redux - Actions
+import { songDetails } from '../../actions/song/songDetails';
 
 // Redux - Slices
 import {
@@ -36,10 +39,17 @@ import Spin from '../spin/Spin';
 interface Props {}
 
 const MainMusic: React.FC<Props> = () => {
+  // Dispatch
+  const dispatch = useDispatch();
+
   // Selector
   const songs = useSelector(selectSongListSongs);
   const loading = useSelector(selectSongListLoading);
   const error = useSelector(selectSongListError);
+
+  const playMusic = (songId: number) => {
+    dispatch(songDetails(songId));
+  };
 
   return (
     <>
@@ -56,7 +66,11 @@ const MainMusic: React.FC<Props> = () => {
               <MainMusicStyled key={id}>
                 <Image>
                   <img src={cover_xl} alt={title_short} />
-                  <IconPlay src={iconPlay} alt="icon play" />
+                  <IconPlay
+                    src={iconPlay}
+                    alt="icon play"
+                    onClick={() => playMusic(id)}
+                  />
                 </Image>
                 <More image={picture_big}>
                   <Information>
