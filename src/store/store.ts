@@ -2,12 +2,12 @@
 import { configureStore } from '@reduxjs/toolkit';
 
 // Redux - Slices
-// import { ...Slice } from '../slices/';
+import { songListSlice } from '../slices/song/songList';
 
 const store = configureStore({
   reducer: {
-    // musicList: musicListSlice.reduce
-    // musicDetails: musicDetailsSlice.reducer,
+    songList: songListSlice.reducer,
+    // songDetails: songDetailsSlice.reducer,
   },
 });
 
