@@ -1,5 +1,5 @@
 // React
-import React, { useState } from 'react';
+import React from 'react';
 
 // Styles
 import { SearchBoxStyled } from './Styles';
@@ -7,10 +7,15 @@ import { SearchBoxStyled } from './Styles';
 // Antd Icons
 import { SearchOutlined } from '@ant-design/icons';
 
+// Custom Hooks
+import useForm from '../../hooks/useForm';
+
 interface Props {}
 
 const SearchBox: React.FC<Props> = () => {
-  const [keyword, setKeyword] = useState('');
+  const { keyword, onChange } = useForm({
+    keyword: '',
+  });
 
   const submitHandler = (e: any) => {
     e.preventDefault();
@@ -27,8 +32,9 @@ const SearchBox: React.FC<Props> = () => {
       <input
         type="text"
         placeholder="Buscar"
-        onChange={(e) => {
-          setKeyword(e.target.value);
+        value={keyword}
+        onChange={({ target }) => {
+          onChange(target.value, 'keyword');
         }}
       />
       <button>
