@@ -11,12 +11,15 @@ interface Props {
   spinning: boolean;
 }
 
-const Spin: React.FC<Props> = ({ spinning = false, children }) => {
+const Spin: React.FC<Props> = ({ spinning = false }) => {
   return (
-    <SpinStyled>
-      {spinning && <LoadingOutlined spin />}
-      {children}
-    </SpinStyled>
+    <>
+      {spinning && (
+        <SpinStyled>
+          <LoadingOutlined spin />
+        </SpinStyled>
+      )}
+    </>
   );
 };
 
