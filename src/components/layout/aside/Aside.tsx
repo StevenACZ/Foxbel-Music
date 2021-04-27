@@ -27,8 +27,8 @@ const Aside: React.FC<Props> = () => {
           <h3>Mi Librería</h3>
           <OptionList>
             <OptionListItem className="active">Recientes</OptionListItem>
-            <OptionListItem>Artistaas</OptionListItem>
-            <OptionListItem>Álbumns</OptionListItem>
+            <OptionListItem>Artistas</OptionListItem>
+            <OptionListItem>Álbums</OptionListItem>
             <OptionListItem>Canciones</OptionListItem>
             <OptionListItem>Estaciones</OptionListItem>
           </OptionList>
