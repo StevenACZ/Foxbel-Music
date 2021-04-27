@@ -8,6 +8,17 @@ export const MusicPlayerStyled = styled.footer`
   align-items: center;
 `;
 
+export const NULLMusicPlayerStyled = styled.footer`
+  grid-area: musicPlayer;
+  height: 100%;
+  width: 100%;
+
+  & > div {
+    height: 100%;
+    width: 100%;
+  }
+`;
+
 export const Image = styled.figure`
   min-width: 100px;
   width: 100px;
