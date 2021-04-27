@@ -8,11 +8,11 @@ import {
   songDetailsFail,
 } from '../../slices/song/songDetails';
 
-export const songDetails = (songId: string) => async (dispatch: any) => {
+export const songDetails = (songId: number) => async (dispatch: any) => {
   try {
     dispatch(songDetailsRequest());
 
-    const { data } = await axios.get(`/track/710977162/${songId}`);
+    const { data } = await axios.get(`/track/${songId}`);
 
     dispatch(songDetailsSuccess(data));
   } catch (error) {
