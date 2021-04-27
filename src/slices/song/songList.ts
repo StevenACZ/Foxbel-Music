@@ -23,7 +23,7 @@ export const songListSlice = createSlice({
       state.error = null;
     },
     songListSuccess: (state, action) => {
-      state.songs = action.payload.products;
+      state.songs = action.payload;
       state.loading = false;
       state.error = null;
     },
@@ -51,7 +51,6 @@ export const selectSongListSongs = (state: RootState) => state.songList.songs;
 export const selectSongListLoading = (state: RootState) =>
   state.songList.loading;
 
-export const selectProductListError = (state: RootState) =>
-  state.songList.error;
+export const selectSongListError = (state: RootState) => state.songList.error;
 
 export default songListSlice.reducer;
