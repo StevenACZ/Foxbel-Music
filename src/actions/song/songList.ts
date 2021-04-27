@@ -12,7 +12,9 @@ export const listSongs = (keyword = '') => async (dispatch: any) => {
   try {
     dispatch(songListRequest());
 
-    const { data } = await axios.get(`/search?q=album:"${keyword}"`);
+    const {
+      data: { data },
+    } = await axios.get(`/search?q=album:"${keyword}"`);
 
     dispatch(songListSuccess(data));
   } catch (error) {
