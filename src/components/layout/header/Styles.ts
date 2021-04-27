@@ -19,8 +19,9 @@ export const HeaderStyled = styled.header`
 export const Search = styled.label`
   display: flex;
   position: relative;
-  width: 55%;
+  width: 59%;
   border-radius: 100px;
+  height: 36px;
 
   & > input {
     border: 1px solid ${color.colorGray};
