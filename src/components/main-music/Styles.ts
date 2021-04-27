@@ -11,6 +11,7 @@ export const Image = styled.figure`
   position: relative;
   display: block;
   min-width: 250px;
+  max-width: 250px;
   height: 100%;
 
   & > img:first-child {
@@ -28,13 +29,32 @@ export const IconPlay = styled.img`
   cursor: pointer;
 `;
 
-export const More = styled.div`
+interface Props {
+  image: string;
+}
+
+export const More = styled.div<Props>`
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: space-between;
   padding: 40px 0 25px 32px;
-  background: linear-gradient(0deg, rgba(167, 0, 0, 0.7), rgba(167, 0, 0, 0.7));
+  background: rgba(250, 118, 118, 0.7);
+  height: 100%;
+  width: 100%;
+
+  &::after {
+    position: absolute;
+    content: '';
+    background: url('${(props) => props.image}');
+    opacity: 0.6;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 250px;
+    z-index: -1;
+  }
 `;
 
 export const Information = styled.div``;
