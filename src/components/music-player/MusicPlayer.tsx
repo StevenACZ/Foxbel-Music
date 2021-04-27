@@ -19,6 +19,7 @@ import {
   Infomation,
   Actions,
   Volume,
+  NULLMusicPlayerStyled,
 } from './Styles';
 
 // Ant Icons
@@ -64,9 +65,8 @@ const MusicPlayer: React.FC<Props> = () => {
 
   return (
     <>
-      {song && (
+      {song ? (
         <MusicPlayerStyled>
-          <audio src={song.preview} ref={audioEl}></audio>
           <Image>
             <img src={song.album.cover_medium} alt={song.title_short} />
           </Image>
@@ -88,9 +88,15 @@ const MusicPlayer: React.FC<Props> = () => {
               <StepForwardOutlined />
             </Actions>
 
-            <Volume></Volume>
+            <Volume>
+              <audio src={song.preview} ref={audioEl} controls></audio>
+            </Volume>
           </Player>
         </MusicPlayerStyled>
+      ) : (
+        <NULLMusicPlayerStyled>
+          <Alert message="Seleccione una musica..." type="warning" />
+        </NULLMusicPlayerStyled>
       )}
       {loading && <Spin spinning={loading} />}
       {error && <Alert message={error} type="error" />}
