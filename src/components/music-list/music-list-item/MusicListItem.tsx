@@ -1,6 +1,12 @@
 // React
 import React from 'react';
 
+// Redux
+import { useDispatch } from 'react-redux';
+
+// Redux - Actions
+import { songDetails } from '../../../actions/song/songDetails';
+
 // Styles
 import {
   MusicListItemStyled,
@@ -18,15 +24,27 @@ import iconThreeVertical from '../../../assets/images/icon-three-vertical.png';
 import { ReqResSong } from '../../../interfaces/reqResSong.interfaces';
 
 const MusicListItem: React.FC<ReqResSong> = ({
+  id,
   title_short,
   artist: { name },
   album: { cover_medium },
 }) => {
+  // Dispatch
+  const dispatch = useDispatch();
+
+  const playMusic = (songId: number) => {
+    dispatch(songDetails(songId));
+  };
+
   return (
     <MusicListItemStyled>
       <Image>
         <img src={cover_medium} alt={title_short} />
-        <IconPlay src={iconPlay} alt="icon play" />
+        <IconPlay
+          src={iconPlay}
+          alt="icon play"
+          onClick={() => playMusic(id)}
+        />
         <IconThreeVertical src={iconThreeVertical} alt="icon three vertical" />
       </Image>
       <Information>
