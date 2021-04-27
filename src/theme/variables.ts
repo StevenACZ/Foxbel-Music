@@ -16,4 +16,8 @@ export const color = {
 
   colorWhite: '#fff',
   colorBlack: '#000',
+
+  colorError: '#FEF2F0',
+  colorWarning: '#FFFBE6',
+  colorSuccess: '#E6F7FF',
 };
