@@ -41,20 +41,22 @@ const MusicList: React.FC<Props> = () => {
   }, [dispatch]);
 
   return (
-    <MusicListStyled>
-      <h2>Resultados</h2>
+    <>
+      {songs && (
+        <MusicListStyled>
+          <h2>Resultados</h2>
 
-      <Spin spinning={loading}>
-        <MusicListContent>
-          {songs &&
-            songs.map((song: ReqResSong) => (
-              <MusicListItem key={song.id} {...song} />
-            ))}
-
-          {error && <Alert message={error} type="error" />}
-        </MusicListContent>
-      </Spin>
-    </MusicListStyled>
+          <MusicListContent>
+            {songs &&
+              songs.map((song: ReqResSong) => (
+                <MusicListItem key={song.id} {...song} />
+              ))}
+          </MusicListContent>
+        </MusicListStyled>
+      )}
+      {loading && <Spin spinning={loading} />}
+      {error && <Alert message={error} type="error" />}
+    </>
   );
 };
 
