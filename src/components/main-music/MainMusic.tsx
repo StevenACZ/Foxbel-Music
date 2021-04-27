@@ -1,6 +1,16 @@
 // React
 import React from 'react';
 
+// Redux
+import { useSelector } from 'react-redux';
+
+// Redux - Slices
+import {
+  selectSongListSongs,
+  selectSongListLoading,
+  selectSongListError,
+} from '../../slices/song/songList';
+
 // Styles
 import {
   MainMusicStyled,
@@ -15,41 +25,69 @@ import {
 
 // Images
 import iconPlay from '../../assets/images/icon-play.png';
-import example from '../../assets/images/adele21.png';
+
+// Interfaces
+import { ReqResSong } from '../../interfaces/reqResSong.interfaces';
+
+// Components
+import Alert from '../alert/Alert';
+import Spin from '../spin/Spin';
 
 interface Props {}
 
 const MainMusic: React.FC<Props> = () => {
-  return (
-    <MainMusicStyled>
-      <Image>
-        <img src={example} alt="music" />
-        <IconPlay src={iconPlay} alt="icon play" />
-      </Image>
-      <More>
-        <Information>
-          <Intro>
-            <h3>Adele 21</h3>
-            <div>
-              <p>Lo mejor de Adela</p>
-              <span>321,123 seguidores</span>
-            </div>
-          </Intro>
+  // Selector
+  const songs = useSelector(selectSongListSongs);
+  const loading = useSelector(selectSongListLoading);
+  const error = useSelector(selectSongListError);
 
-          <Description>
-            <p>
-              Adele Laurie Blue Adkins (Tottenham, Londres, Inglaterra, 5 de
-              mayo de 1988), conocida simplemente como Adele, es una cantante,
-              compositora y multinstrumentista británica.8​
-            </p>
-          </Description>
-        </Information>
-        <Actions>
-          <button className="active">Reproducir</button>
-          <button>Seguir</button>
-        </Actions>
-      </More>
-    </MainMusicStyled>
+  return (
+    <>
+      {songs &&
+        songs
+          .slice(0, 1)
+          .map(
+            ({
+              id,
+              title_short,
+              artist: { name, picture_big },
+              album: { cover_xl },
+            }: ReqResSong) => (
+              <MainMusicStyled key={id}>
+                <Image>
+                  <img src={cover_xl} alt={title_short} />
+                  <IconPlay src={iconPlay} alt="icon play" />
+                </Image>
+                <More image={picture_big}>
+                  <Information>
+                    <Intro>
+                      <h3>{title_short}</h3>
+                      <div>
+                        <p>Lo mejor de {name}</p>
+                        <span>321,123 seguidores</span>
+                      </div>
+                    </Intro>
+
+                    <Description>
+                      <p>
+                        Adele Laurie Blue Adkins (Tottenham, Londres,
+                        Inglaterra, 5 de mayo de 1988), conocida simplemente
+                        como Adele, es una cantante, compositora y
+                        multinstrumentista británica.8​
+                      </p>
+                    </Description>
+                  </Information>
+                  <Actions>
+                    <button className="active">Reproducir</button>
+                    <button>Seguir</button>
+                  </Actions>
+                </More>
+              </MainMusicStyled>
+            )
+          )}
+      {loading && <Spin spinning={loading} />}
+      {error && <Alert message={error} type="error" />}
+    </>
   );
 };
 
