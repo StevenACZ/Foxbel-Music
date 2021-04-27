@@ -5,13 +5,6 @@ export const AsideStyled = styled.aside`
   grid-area: aside;
   background-color: ${color.colorDarkRedSecondary};
   padding: 50px 0;
-
-  @media (max-width: 991px) {
-    padding: 30px 20px;
-  }
-
-  @media (max-width: 767px) {
-  }
 `;
 
 export const Logo = styled.figure`
@@ -40,7 +33,7 @@ export const List = styled.div`
     font-style: normal;
     line-height: 27.5px;
     font-weight: 700;
-    margin-bottom: 8px;
+    margin-bottom: 4px;
     padding-left: 40px;
   }
 `;
@@ -59,12 +52,15 @@ export const OptionListItem = styled.li`
   &:hover {
     padding-left: 35px;
     border-left: 5px solid ${color.colorRedPrincipal};
+    font-weight: 700;
+    color: ${color.colorRedPrincipal};
   }
 
   &.active {
     padding-left: 35px;
     border-left: 5px solid ${color.colorRedPrincipal};
     color: ${color.colorRedPrincipal};
+    font-weight: 700;
   }
 
   &:last-child {
