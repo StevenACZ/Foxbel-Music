@@ -2,20 +2,20 @@
 import React from 'react';
 
 // Styles
-import { HeaderStyled, Search, User } from './Styles';
+import { HeaderStyled, User } from './Styles';
 
 // Ant Icons
-import { UserOutlined, SearchOutlined } from '@ant-design/icons';
+import { UserOutlined } from '@ant-design/icons';
+
+// Components
+import SearchBox from '../../search-box/SearchBox';
 
 interface Props {}
 
 const Header: React.FC<Props> = () => {
   return (
     <HeaderStyled>
-      <Search>
-        <input type="text" placeholder="Buscar" />
-        <SearchOutlined />
-      </Search>
+      <SearchBox />
       <User>
         <UserOutlined />
         <span>Francisco M.</span>
