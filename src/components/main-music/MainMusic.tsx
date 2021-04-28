@@ -53,7 +53,7 @@ const MainMusic: React.FC<Props> = () => {
 
   return (
     <>
-      {songs ? (
+      {songs &&
         songs
           .slice(0, 1)
           .map(
@@ -98,10 +98,8 @@ const MainMusic: React.FC<Props> = () => {
                 </More>
               </MainMusicStyled>
             )
-          )
-      ) : (
-        <Alert message="Busque algo..." type="warning" />
-      )}
+          )}
+      {!songs && !loading && <Alert message="Busque algo..." type="warning" />}
       {loading && <Spin spinning={loading} />}
       {error && <Alert message={error} type="error" />}
     </>
