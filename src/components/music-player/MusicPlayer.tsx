@@ -22,6 +22,9 @@ import {
   NULLMusicPlayerStyled,
 } from './Styles';
 
+// Images
+import iconSound from '../../assets/images/icon-sound.png';
+
 // Ant Icons
 import {
   PlayCircleOutlined,
@@ -54,6 +57,7 @@ const MusicPlayer: React.FC<Props> = () => {
       } else {
         audioEl.current.pause();
       }
+      audioEl.current.volume = volume;
     }
   }, [song, isPlaying, volume]);
 
@@ -67,12 +71,11 @@ const MusicPlayer: React.FC<Props> = () => {
 
   const volumeMusic = (target: any) => {
     setVolume(target.value);
-    audioEl.current.volume = volume;
   };
 
   return (
     <>
-      {song ? (
+      {song && (
         <MusicPlayerStyled>
           <Image>
             <img src={song.album.cover_medium} alt={song.title_short} />
@@ -104,11 +107,14 @@ const MusicPlayer: React.FC<Props> = () => {
                 value={volume}
                 onChange={({ target }) => volumeMusic(target)}
               />
+              <img src={iconSound} alt="icon sound" />
             </Volume>
-            <audio src={song.preview} ref={audioEl}></audio>
           </Player>
+
+          <audio src={song.preview} ref={audioEl}></audio>
         </MusicPlayerStyled>
-      ) : (
+      )}
+      {!song && !loading && (
         <NULLMusicPlayerStyled>
           <Alert message="Seleccione una musica..." type="warning" />
         </NULLMusicPlayerStyled>

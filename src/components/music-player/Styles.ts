@@ -36,7 +36,7 @@ export const Player = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 20px;
+  padding: 0 32px 0 20px;
 `;
 
 export const Infomation = styled.div`
@@ -82,6 +82,9 @@ export const Actions = styled.div`
 `;
 
 export const Volume = styled.div`
+  display: flex;
+  align-items: center;
+
   input[type='range'] {
     -webkit-appearance: none; /* Hides the slider so that custom slider can be made */
     width: 100%; /* Specific width is required for Firefox. */
@@ -137,5 +140,9 @@ export const Volume = styled.div`
     border-radius: 100%;
     background: #ffffff;
     cursor: pointer;
+  }
+
+  & > img {
+    margin-left: 40px;
   }
 `;
