@@ -81,4 +81,61 @@ export const Actions = styled.div`
   }
 `;
 
-export const Volume = styled.div``;
+export const Volume = styled.div`
+  input[type='range'] {
+    -webkit-appearance: none; /* Hides the slider so that custom slider can be made */
+    width: 100%; /* Specific width is required for Firefox. */
+    background: ${color.colorWhite}; /* Otherwise white in Chrome */
+    border-radius: 100px;
+    height: 6px;
+  }
+
+  input[type='range']::-webkit-slider-thumb {
+    -webkit-appearance: none;
+  }
+
+  input[type='range']:focus {
+    outline: none; /* Removes the blue border. You should probably do some kind of focus styling for accessibility reasons though. */
+  }
+
+  input[type='range']::-ms-track {
+    width: 100%;
+    cursor: pointer;
+
+    /* Hides the slider so custom styles can be added */
+    background: transparent;
+    border-color: transparent;
+    color: transparent;
+  }
+
+  /* Special styling for WebKit/Blink */
+  input[type='range']::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    border: 1px solid rgba(255, 109, 109, 0.2);
+    height: 20px;
+    width: 20px;
+    border-radius: 100%;
+    background: #ffffff;
+    cursor: pointer;
+  }
+
+  /* All the same stuff for Firefox */
+  input[type='range']::-moz-range-thumb {
+    border: 1px solid rgba(255, 109, 109, 0.2);
+    height: 20px;
+    width: 20px;
+    border-radius: 100%;
+    background: #ffffff;
+    cursor: pointer;
+  }
+
+  /* All the same stuff for IE */
+  input[type='range']::-ms-thumb {
+    border: 1px solid rgba(255, 109, 109, 0.2);
+    height: 20px;
+    width: 20px;
+    border-radius: 100%;
+    background: #ffffff;
+    cursor: pointer;
+  }
+`;
