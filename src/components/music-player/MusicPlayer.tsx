@@ -43,7 +43,9 @@ const MusicPlayer: React.FC<Props> = () => {
   const error = useSelector(selectSongDetailsError);
 
   const audioEl = useRef(null) as any;
+
   const [isPlaying, setIsPlaying] = useState(false);
+  const [volume, setVolume] = useState(0.5);
 
   useEffect(() => {
     if (song) {
@@ -53,7 +55,7 @@ const MusicPlayer: React.FC<Props> = () => {
         audioEl.current.pause();
       }
     }
-  }, [song, isPlaying]);
+  }, [song, isPlaying, volume]);
 
   const playMusic = () => {
     setIsPlaying(true);
@@ -61,6 +63,11 @@ const MusicPlayer: React.FC<Props> = () => {
 
   const pauseMusic = () => {
     setIsPlaying(false);
+  };
+
+  const volumeMusic = (target: any) => {
+    setVolume(target.value);
+    audioEl.current.volume = volume;
   };
 
   return (
@@ -89,8 +96,16 @@ const MusicPlayer: React.FC<Props> = () => {
             </Actions>
 
             <Volume>
-              <audio src={song.preview} ref={audioEl} controls></audio>
+              <input
+                type="range"
+                min="0"
+                max="1"
+                step="0.1"
+                value={volume}
+                onChange={({ target }) => volumeMusic(target)}
+              />
             </Volume>
+            <audio src={song.preview} ref={audioEl}></audio>
           </Player>
         </MusicPlayerStyled>
       ) : (
